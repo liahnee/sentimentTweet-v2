@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import './stylesheets/App.css';
 import Routes from './routes';
-import { connect } from 'react-redux';
 
 
 const url = 'http://localhost:3000'
 
-function App() {
+function App(props) {
 
   useEffect(() => {
     getAllCelebs();
@@ -17,27 +19,28 @@ function App() {
     .then(resp => resp.json())
     .then(data => {
       console.log(data);
-      addAllCelebs(data);
+      props.addAllCelebs(data);
     })
    } 
 
 
   return (
-    <React.Fragment>
+    <div>
       {/* <SideNav navItems={navItems} />
       <TopNav /> */}
       <Routes />
-  </React.Fragment>
+  </div>
   );
 }
 
 const sToP = (state) => {
 	return {
+    allCelebs: state.manageCelebs.allCelebs
 	};
 };
 
 const dToP = (dispatch) => ({
-	addAllCelebs: (data) => dispatch({ type: 'ADD_ALL_CELEBS', payload: data })
+	addAllCelebs: (data) => dispatch({ type: 'ADD_CELEBS', payload: data })
 });
 
 export default withRouter(connect(sToP, dToP)(App));

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Dropdown } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react';
 
 
-const Dropdown = (props) => {
+const DropdownComponent = (props) => {
 
     return (
-        <Dropdown clearable selection options={props.options} onChange={props.handleChange} />
+        <div>
+            <Dropdown clearable fluid search selection options={props.options} onChange={props.handleChange} />
+        </div>
+        
     )
 };
 
-export default Dropdown;
+export default DropdownComponent;
