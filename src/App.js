@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,7 +8,7 @@ import Routes from './routes';
 
 const url = 'http://localhost:3000'
 
-function App(props) {
+function App(props) {;
 
   useEffect(() => {
     getAllCelebs();
@@ -21,13 +21,14 @@ function App(props) {
       console.log(data);
       props.addAllCelebs(data);
     })
+    .then(() => {
+      props.allCelebsLoading();
+    })
    } 
 
 
   return (
     <div>
-      {/* <SideNav navItems={navItems} />
-      <TopNav /> */}
       <Routes />
   </div>
   );
@@ -40,7 +41,8 @@ const sToP = (state) => {
 };
 
 const dToP = (dispatch) => ({
-	addAllCelebs: (data) => dispatch({ type: 'ADD_CELEBS', payload: data })
+  addAllCelebs: (data) => dispatch({ type: 'ADD_CELEBS', payload: data }),
+  allCelebsLoading: () => dispatch({ type: 'DONE', payload:false})
 });
 
 export default withRouter(connect(sToP, dToP)(App));

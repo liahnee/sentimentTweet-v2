@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
+import withLoading from '../hoc/loading';
 
 const DropdownComponent = (props) => {
 
@@ -12,4 +13,4 @@ const DropdownComponent = (props) => {
     )
 };
 
-export default DropdownComponent;
+export default withLoading(DropdownComponent);
