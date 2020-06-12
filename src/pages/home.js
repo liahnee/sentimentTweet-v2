@@ -17,9 +17,9 @@ const Home = (props) => {
     }
 
     const options = () => {
-       return props.allCelebs.map(obj => {
+       return props.allCelebs.map((obj, i) => {
            const { name, twitter_id, id } = obj;
-           return {key: twitter_id, value: id, text: name}
+           return {key: twitter_id + i, value: id, text: name}
        })
     }
 

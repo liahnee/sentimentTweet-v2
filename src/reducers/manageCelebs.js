@@ -1,5 +1,5 @@
 
-const url = 'http://localhost:3000';
+const url = 'sentiment-tweet-api.herokuapp.com';
 
 export default function manageCelebs(
 	state = {

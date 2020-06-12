@@ -6,7 +6,7 @@ import './stylesheets/App.css';
 import Routes from './routes';
 
 
-const url = 'http://localhost:3000'
+const url = 'sentiment-tweet-api.herokuapp.com'
 
 function App(props) {;
 

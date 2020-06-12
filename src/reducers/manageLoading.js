@@ -1,4 +1,4 @@
-export default function manageLogin(
+export default function manageLoading(
     state = {
     allCelebsLoading: true
 }, action) {
